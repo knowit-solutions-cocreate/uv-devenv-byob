@@ -4,14 +4,12 @@
   config,
   inputs,
   ...
-}: let
-  sdf = import inputs.sdf {system = pkgs.stdenv.system;};
-in {
+}: {
   # https://devenv.sh/basics/
   env.GREET = "devenv";
 
   # https://devenv.sh/packages/
-  packages = [pkgs.git sdf.postgrest];
+  packages = [pkgs.git inputs.sdf.defaultPackage.x86_64-linux];
 
   # https://devenv.sh/languages/
   # languages.rust.enable = true;
