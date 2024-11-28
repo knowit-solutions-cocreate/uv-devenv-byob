@@ -1,5 +1,5 @@
 {
-  description = "REST API for any Postgres database";
+  description = "SDF is the fastest way to build a scalable, reliable, and optimized data warehouse.";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs";
@@ -11,25 +11,25 @@
   }: {
     defaultPackage.x86_64-linux = with import nixpkgs {system = "x86_64-linux";};
       stdenv.mkDerivation rec {
-        name = "postgrest-${version}";
+        name = "sdf-${version}";
 
-        version = "9.0.0";
+        version = "v0.10.7";
 
         # https://nixos.wiki/wiki/Packaging/Binaries
         src = pkgs.fetchurl {
-          url = "https://github.com/PostgREST/postgrest/releases/download/v${version}/postgrest-v${version}-linux-static-x64.tar.xz";
-          sha256 = "sha256-6kgh6heVV7qNcNzcXTiqbVyhfsSV9u5/S3skto6Uzz4=";
+          url = "https://github.com/sdf-labs/sdf-cli/releases/download/${version}/sdf-${version}-x86_64-unknown-linux-musl.tar.gz";
+          sha256 = "sha256-1DC2O+UWx7O9pKSRjetzcN9sqbxM6lY3o1XB39RQUpU=";
         };
 
-        sourceRoot = ".";
+        sourceRoot = "./sdf-${version}-x86_64-unknown-linux-musl";
 
         installPhase = ''
-          install -m755 -D postgrest $out/bin/postgrest
+          install -m755 -D sdf $out/bin/sdf
         '';
 
         meta = with lib; {
-          homepage = "https://postgrest.org";
-          description = "REST API for any Postgres database";
+          homepage = "https://docs.sdf.com";
+          description = "SDF is the fastest way to build a scalable, reliable, and optimized data warehouse.";
           platforms = platforms.linux;
         };
       };

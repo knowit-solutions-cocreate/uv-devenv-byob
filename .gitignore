@@ -2,6 +2,9 @@
 .devenv*
 devenv.local.nix
 
+
+# python 
+**__pycache__**
 # direnv
 .direnv
 
