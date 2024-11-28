@@ -13,6 +13,10 @@
 
   # https://devenv.sh/languages/
   # languages.rust.enable = true;
+  languages.python = {
+    enable = true;
+    uv.enable = true;
+  };
 
   # https://devenv.sh/processes/
   # processes.cargo-watch.exec = "cargo-watch";
@@ -22,7 +26,7 @@
 
   # https://devenv.sh/scripts/
   scripts.hello.exec = ''
-    echo hello from $GREET
+    uv run hello.py
   '';
 
   enterShell = ''

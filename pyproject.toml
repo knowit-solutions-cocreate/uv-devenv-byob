@@ -1,0 +1,10 @@
+
+[project]
+name = "uv-pyproject"
+version = "0.1.0"
+description = "Add project description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "databricks-cli>=0.18.0",
+]
